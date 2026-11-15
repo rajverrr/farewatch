@@ -1,0 +1,87 @@
+[
+  {
+    "id": "diwali-chhath",
+    "name": "Diwali & Chhath Puja",
+    "icon": "🪔",
+    "badge": "Highest Demand in India",
+    "description": "Massive annual homecoming rush towards Bihar, UP, and Eastern India.",
+    "rushStartDate": "2026-11-04",
+    "rushEndDate": "2026-11-17",
+    "peakDate": "2026-11-13",
+    "surgeMultiplier": 3.8,
+    "topRoutes": [
+      { "origin": "DEL", "destination": "PAT" },
+      { "origin": "BLR", "destination": "PAT" },
+      { "origin": "BOM", "destination": "PAT" },
+      { "origin": "DEL", "destination": "VNS" },
+      { "origin": "BOM", "destination": "LKO" }
+    ]
+  },
+  {
+    "id": "durga-puja",
+    "name": "Durga Puja",
+    "icon": "🪘",
+    "badge": "Kolkata & East Rush",
+    "description": "Bengal's biggest festival with flights from BLR, BOM, and DEL spiking 3x.",
+    "rushStartDate": "2026-10-15",
+    "rushEndDate": "2026-10-22",
+    "peakDate": "2026-10-18",
+    "surgeMultiplier": 3.2,
+    "topRoutes": [
+      { "origin": "BLR", "destination": "CCU" },
+      { "origin": "BOM", "destination": "CCU" },
+      { "origin": "DEL", "destination": "CCU" },
+      { "origin": "HYD", "destination": "CCU" }
+    ]
+  },
+  {
+    "id": "goa-new-year",
+    "name": "Goa New Year & Sunburn",
+    "icon": "🏖️",
+    "badge": "Holiday Surge",
+    "description": "Peak tourist season in Goa with one-way fares crossing ₹18,000.",
+    "rushStartDate": "2026-12-24",
+    "rushEndDate": "2027-01-03",
+    "peakDate": "2026-12-30",
+    "surgeMultiplier": 3.5,
+    "topRoutes": [
+      { "origin": "BOM", "destination": "GOI" },
+      { "origin": "DEL", "destination": "GOX" },
+      { "origin": "BLR", "destination": "GOI" },
+      { "origin": "HYD", "destination": "GOX" }
+    ]
+  },
+  {
+    "id": "holi",
+    "name": "Holi Festival of Colors",
+    "icon": "🎨",
+    "badge": "North & Central Rush",
+    "description": "Spring festival with heavy travel towards UP, Bihar, Rajasthan, and MP.",
+    "rushStartDate": "2027-03-18",
+    "rushEndDate": "2027-03-25",
+    "peakDate": "2027-03-22",
+    "surgeMultiplier": 2.6,
+    "topRoutes": [
+      { "origin": "DEL", "destination": "LKO" },
+      { "origin": "BOM", "destination": "PAT" },
+      { "origin": "BLR", "destination": "JAI" },
+      { "origin": "DEL", "destination": "VNS" }
+    ]
+  },
+  {
+    "id": "onam",
+    "name": "Onam Festival",
+    "icon": "🌸",
+    "badge": "Kerala Homecoming",
+    "description": "Expat and domestic techie rush back to Kochi and Thiruvananthapuram.",
+    "rushStartDate": "2026-08-25",
+    "rushEndDate": "2026-09-03",
+    "peakDate": "2026-08-28",
+    "surgeMultiplier": 2.5,
+    "topRoutes": [
+      { "origin": "BLR", "destination": "COK" },
+      { "origin": "BOM", "destination": "COK" },
+      { "origin": "DEL", "destination": "COK" }
+    ]
+  }
+]

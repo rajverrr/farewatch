@@ -1,0 +1,22 @@
+[
+  { "code": "DEL", "city": "New Delhi", "name": "Indira Gandhi International Airport", "state": "Delhi", "tier": 1 },
+  { "code": "BOM", "city": "Mumbai", "name": "Chhatrapati Shivaji Maharaj International Airport", "state": "Maharashtra", "tier": 1 },
+  { "code": "BLR", "city": "Bengaluru", "name": "Kempegowda International Airport", "state": "Karnataka", "tier": 1 },
+  { "code": "PAT", "city": "Patna", "name": "Jayprakash Narayan Airport", "state": "Bihar", "tier": 2, "festiveHub": true },
+  { "code": "CCU", "city": "Kolkata", "name": "Netaji Subhash Chandra Bose International Airport", "state": "West Bengal", "tier": 1, "festiveHub": true },
+  { "code": "HYD", "city": "Hyderabad", "name": "Rajiv Gandhi International Airport", "state": "Telangana", "tier": 1 },
+  { "code": "MAA", "city": "Chennai", "name": "Chennai International Airport", "state": "Tamil Nadu", "tier": 1 },
+  { "code": "GOI", "city": "Goa (Dabolim)", "name": "Dabolim Airport", "state": "Goa", "tier": 2, "festiveHub": true },
+  { "code": "GOX", "city": "Goa (Mopa)", "name": "Manohar International Airport", "state": "Goa", "tier": 2, "festiveHub": true },
+  { "code": "COK", "city": "Kochi", "name": "Cochin International Airport", "state": "Kerala", "tier": 2, "festiveHub": true },
+  { "code": "LKO", "city": "Lucknow", "name": "Chaudhary Charan Singh International Airport", "state": "Uttar Pradesh", "tier": 2, "festiveHub": true },
+  { "code": "VNS", "city": "Varanasi", "name": "Lal Bahadur Shastri Airport", "state": "Uttar Pradesh", "tier": 2, "festiveHub": true },
+  { "code": "GAU", "city": "Guwahati", "name": "Lokpriya Gopinath Bordoloi International Airport", "state": "Assam", "tier": 2, "festiveHub": true },
+  { "code": "PNQ", "city": "Pune", "name": "Pune International Airport", "state": "Maharashtra", "tier": 2 },
+  { "code": "AMD", "city": "Ahmedabad", "name": "Sardar Vallabhbhai Patel International Airport", "state": "Gujarat", "tier": 1 },
+  { "code": "JAI", "city": "Jaipur", "name": "Jaipur International Airport", "state": "Rajasthan", "tier": 2 },
+  { "code": "ATQ", "city": "Amritsar", "name": "Sri Guru Ram Dass Jee International Airport", "state": "Punjab", "tier": 2 },
+  { "code": "IXB", "city": "Bagdogra / Siliguri", "name": "Bagdogra International Airport", "state": "West Bengal", "tier": 2 },
+  { "code": "BBI", "city": "Bhubaneswar", "name": "Biju Patnaik Airport", "state": "Odisha", "tier": 2 },
+  { "code": "RPR", "city": "Raipur", "name": "Swami Vivekananda Airport", "state": "Chhattisgarh", "tier": 2 }
+]

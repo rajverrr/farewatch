@@ -1,0 +1,42 @@
+[
+  {
+    "id": "alert-diwali-del-pat",
+    "origin": "DEL",
+    "originCity": "New Delhi",
+    "destination": "PAT",
+    "destinationCity": "Patna",
+    "travelDate": "2026-11-12",
+    "festivalId": "diwali-chhath",
+    "festivalName": "Diwali & Chhath Puja",
+    "targetPrice": 5500,
+    "currentLowest": 16150,
+    "historicalPeak": 19500,
+    "channel": "whatsapp",
+    "contactInfo": "+91 98765 43210",
+    "active": true,
+    "lastCheckedAt": "2026-11-13T14:30:00.005Z",
+    "createdAt": "2026-11-11T04:16:12.984Z",
+    "status": "TEST_TRIGGERED_SUCCESS",
+    "updatedAt": "2026-11-13T14:30:00.005Z"
+  },
+  {
+    "id": "alert-puja-blr-ccu",
+    "origin": "BLR",
+    "originCity": "Bengaluru",
+    "destination": "CCU",
+    "destinationCity": "Kolkata",
+    "travelDate": "2026-10-17",
+    "festivalId": "durga-puja",
+    "festivalName": "Durga Puja",
+    "targetPrice": 6500,
+    "currentLowest": 14900,
+    "historicalPeak": 17800,
+    "channel": "whatsapp",
+    "contactInfo": "+91 91234 56789",
+    "active": true,
+    "lastCheckedAt": "2026-11-13T14:30:00.005Z",
+    "createdAt": "2026-11-10T04:16:12.984Z",
+    "status": "MONITORING",
+    "updatedAt": "2026-11-13T14:30:00.006Z"
+  }
+]

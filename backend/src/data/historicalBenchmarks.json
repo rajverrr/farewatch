@@ -1,0 +1,128 @@
+{
+  "defaultBenchmark": {
+    "offSeasonMedian": 4200,
+    "festiveAverage": 9200,
+    "historicalPeak": 16500,
+    "strongBuyThreshold": 5500,
+    "goodDealThreshold": 7200,
+    "surgeTimelineDays": [
+      { "daysOut": 90, "multiplier": 1.0, "note": "Early bird window - fares at standard baseline" },
+      { "daysOut": 60, "multiplier": 1.1, "note": "Early booking starts - lowest risk window" },
+      { "daysOut": 45, "multiplier": 1.35, "note": "Noticeable upward creep begins" },
+      { "daysOut": 30, "multiplier": 1.85, "note": "Surge point - cheap buckets sold out" },
+      { "daysOut": 15, "multiplier": 2.6, "note": "Panic rush - prices escalate rapidly" },
+      { "daysOut": 7, "multiplier": 3.4, "note": "Peak frenzy - highest historical rates" },
+      { "daysOut": 2, "multiplier": 3.9, "note": "Emergency last-seat extortion fares" }
+    ]
+  },
+  "routes": {
+    "DEL-PAT": {
+      "offSeasonMedian": 3900,
+      "festiveAverage": 10500,
+      "historicalPeak": 19500,
+      "strongBuyThreshold": 5200,
+      "goodDealThreshold": 7500,
+      "distanceKm": 850,
+      "typicalDuration": "1h 40m"
+    },
+    "BLR-PAT": {
+      "offSeasonMedian": 5800,
+      "festiveAverage": 13800,
+      "historicalPeak": 23500,
+      "strongBuyThreshold": 7200,
+      "goodDealThreshold": 9500,
+      "distanceKm": 1600,
+      "typicalDuration": "2h 35m"
+    },
+    "BOM-PAT": {
+      "offSeasonMedian": 5400,
+      "festiveAverage": 12500,
+      "historicalPeak": 21000,
+      "strongBuyThreshold": 6900,
+      "goodDealThreshold": 8900,
+      "distanceKm": 1450,
+      "typicalDuration": "2h 25m"
+    },
+    "BLR-CCU": {
+      "offSeasonMedian": 4600,
+      "festiveAverage": 11200,
+      "historicalPeak": 17800,
+      "strongBuyThreshold": 5900,
+      "goodDealThreshold": 7800,
+      "distanceKm": 1550,
+      "typicalDuration": "2h 30m"
+    },
+    "BOM-CCU": {
+      "offSeasonMedian": 4800,
+      "festiveAverage": 10800,
+      "historicalPeak": 16900,
+      "strongBuyThreshold": 6100,
+      "goodDealThreshold": 8200,
+      "distanceKm": 1650,
+      "typicalDuration": "2h 40m"
+    },
+    "DEL-CCU": {
+      "offSeasonMedian": 4100,
+      "festiveAverage": 9400,
+      "historicalPeak": 15500,
+      "strongBuyThreshold": 5300,
+      "goodDealThreshold": 6900,
+      "distanceKm": 1300,
+      "typicalDuration": "2h 10m"
+    },
+    "DEL-BOM": {
+      "offSeasonMedian": 3800,
+      "festiveAverage": 6800,
+      "historicalPeak": 12500,
+      "strongBuyThreshold": 4400,
+      "goodDealThreshold": 5500,
+      "distanceKm": 1150,
+      "typicalDuration": "2h 15m"
+    },
+    "BOM-GOI": {
+      "offSeasonMedian": 2900,
+      "festiveAverage": 7900,
+      "historicalPeak": 16800,
+      "strongBuyThreshold": 3800,
+      "goodDealThreshold": 5400,
+      "distanceKm": 430,
+      "typicalDuration": "1h 15m"
+    },
+    "DEL-GOX": {
+      "offSeasonMedian": 4900,
+      "festiveAverage": 11800,
+      "historicalPeak": 19800,
+      "strongBuyThreshold": 6400,
+      "goodDealThreshold": 8500,
+      "distanceKm": 1500,
+      "typicalDuration": "2h 35m"
+    },
+    "BLR-COK": {
+      "offSeasonMedian": 2700,
+      "festiveAverage": 6200,
+      "historicalPeak": 12800,
+      "strongBuyThreshold": 3500,
+      "goodDealThreshold": 4800,
+      "distanceKm": 360,
+      "typicalDuration": "1h 05m"
+    },
+    "DEL-VNS": {
+      "offSeasonMedian": 3400,
+      "festiveAverage": 8600,
+      "historicalPeak": 15200,
+      "strongBuyThreshold": 4500,
+      "goodDealThreshold": 6200,
+      "distanceKm": 680,
+      "typicalDuration": "1h 25m"
+    },
+    "BOM-LKO": {
+      "offSeasonMedian": 4500,
+      "festiveAverage": 9800,
+      "historicalPeak": 16200,
+      "strongBuyThreshold": 5800,
+      "goodDealThreshold": 7600,
+      "distanceKm": 1200,
+      "typicalDuration": "2h 10m"
+    }
+  }
+}
