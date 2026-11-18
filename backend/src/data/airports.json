@@ -14,9 +14,12 @@
   { "code": "GAU", "city": "Guwahati", "name": "Lokpriya Gopinath Bordoloi International Airport", "state": "Assam", "tier": 2, "festiveHub": true },
   { "code": "PNQ", "city": "Pune", "name": "Pune International Airport", "state": "Maharashtra", "tier": 2 },
   { "code": "AMD", "city": "Ahmedabad", "name": "Sardar Vallabhbhai Patel International Airport", "state": "Gujarat", "tier": 1 },
-  { "code": "JAI", "city": "Jaipur", "name": "Jaipur International Airport", "state": "Rajasthan", "tier": 2 },
+  { "code": "JAI", "city": "Jaipur", "name": "Jaipur International Airport", "state": "Rajasthan", "tier": 2, "festiveHub": true },
+  { "code": "SXR", "city": "Srinagar", "name": "Sheikh ul-Alam International Airport", "state": "Jammu & Kashmir", "tier": 2, "festiveHub": true },
   { "code": "ATQ", "city": "Amritsar", "name": "Sri Guru Ram Dass Jee International Airport", "state": "Punjab", "tier": 2 },
-  { "code": "IXB", "city": "Bagdogra / Siliguri", "name": "Bagdogra International Airport", "state": "West Bengal", "tier": 2 },
+  { "code": "IXB", "city": "Bagdogra / Siliguri", "name": "Bagdogra International Airport", "state": "West Bengal", "tier": 2, "festiveHub": true },
   { "code": "BBI", "city": "Bhubaneswar", "name": "Biju Patnaik Airport", "state": "Odisha", "tier": 2 },
-  { "code": "RPR", "city": "Raipur", "name": "Swami Vivekananda Airport", "state": "Chhattisgarh", "tier": 2 }
+  { "code": "RPR", "city": "Raipur", "name": "Swami Vivekananda Airport", "state": "Chhattisgarh", "tier": 2 },
+  { "code": "IXC", "city": "Chandigarh", "name": "Shaheed Bhagat Singh Airport", "state": "Punjab / Haryana", "tier": 2 },
+  { "code": "DED", "city": "Dehradun", "name": "Jolly Grant Airport", "state": "Uttarakhand", "tier": 2 }
 ]

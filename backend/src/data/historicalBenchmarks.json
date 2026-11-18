@@ -79,6 +79,24 @@
       "distanceKm": 1150,
       "typicalDuration": "2h 15m"
     },
+    "DEL-BLR": {
+      "offSeasonMedian": 4500,
+      "festiveAverage": 8200,
+      "historicalPeak": 14800,
+      "strongBuyThreshold": 5200,
+      "goodDealThreshold": 6800,
+      "distanceKm": 1740,
+      "typicalDuration": "2h 45m"
+    },
+    "BOM-BLR": {
+      "offSeasonMedian": 2800,
+      "festiveAverage": 5400,
+      "historicalPeak": 9800,
+      "strongBuyThreshold": 3400,
+      "goodDealThreshold": 4500,
+      "distanceKm": 840,
+      "typicalDuration": "1h 35m"
+    },
     "BOM-GOI": {
       "offSeasonMedian": 2900,
       "festiveAverage": 7900,
@@ -96,6 +114,15 @@
       "goodDealThreshold": 8500,
       "distanceKm": 1500,
       "typicalDuration": "2h 35m"
+    },
+    "BLR-GOI": {
+      "offSeasonMedian": 2600,
+      "festiveAverage": 6900,
+      "historicalPeak": 14500,
+      "strongBuyThreshold": 3400,
+      "goodDealThreshold": 4900,
+      "distanceKm": 480,
+      "typicalDuration": "1h 15m"
     },
     "BLR-COK": {
       "offSeasonMedian": 2700,
@@ -123,6 +150,42 @@
       "goodDealThreshold": 7600,
       "distanceKm": 1200,
       "typicalDuration": "2h 10m"
+    },
+    "DEL-LKO": {
+      "offSeasonMedian": 2800,
+      "festiveAverage": 6500,
+      "historicalPeak": 11900,
+      "strongBuyThreshold": 3500,
+      "goodDealThreshold": 4800,
+      "distanceKm": 420,
+      "typicalDuration": "1h 10m"
+    },
+    "DEL-SXR": {
+      "offSeasonMedian": 4400,
+      "festiveAverage": 10200,
+      "historicalPeak": 18500,
+      "strongBuyThreshold": 5600,
+      "goodDealThreshold": 7400,
+      "distanceKm": 650,
+      "typicalDuration": "1h 30m"
+    },
+    "DEL-IXB": {
+      "offSeasonMedian": 4600,
+      "festiveAverage": 10900,
+      "historicalPeak": 17500,
+      "strongBuyThreshold": 5800,
+      "goodDealThreshold": 7600,
+      "distanceKm": 1120,
+      "typicalDuration": "2h 00m"
+    },
+    "HYD-CCU": {
+      "offSeasonMedian": 4200,
+      "festiveAverage": 9800,
+      "historicalPeak": 16200,
+      "strongBuyThreshold": 5400,
+      "goodDealThreshold": 7100,
+      "distanceKm": 1180,
+      "typicalDuration": "2h 05m"
     }
   }
 }

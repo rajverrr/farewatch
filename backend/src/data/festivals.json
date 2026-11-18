@@ -5,33 +5,16 @@
     "icon": "🪔",
     "badge": "Highest Demand in India",
     "description": "Massive annual homecoming rush towards Bihar, UP, and Eastern India.",
-    "rushStartDate": "2026-11-04",
-    "rushEndDate": "2026-11-17",
-    "peakDate": "2026-11-13",
-    "surgeMultiplier": 3.8,
+    "rushStartDate": "2026-11-20",
+    "rushEndDate": "2026-12-05",
+    "peakDate": "2026-11-28",
+    "surgeMultiplier": 3.9,
     "topRoutes": [
       { "origin": "DEL", "destination": "PAT" },
       { "origin": "BLR", "destination": "PAT" },
       { "origin": "BOM", "destination": "PAT" },
       { "origin": "DEL", "destination": "VNS" },
       { "origin": "BOM", "destination": "LKO" }
-    ]
-  },
-  {
-    "id": "durga-puja",
-    "name": "Durga Puja",
-    "icon": "🪘",
-    "badge": "Kolkata & East Rush",
-    "description": "Bengal's biggest festival with flights from BLR, BOM, and DEL spiking 3x.",
-    "rushStartDate": "2026-10-15",
-    "rushEndDate": "2026-10-22",
-    "peakDate": "2026-10-18",
-    "surgeMultiplier": 3.2,
-    "topRoutes": [
-      { "origin": "BLR", "destination": "CCU" },
-      { "origin": "BOM", "destination": "CCU" },
-      { "origin": "DEL", "destination": "CCU" },
-      { "origin": "HYD", "destination": "CCU" }
     ]
   },
   {
@@ -52,15 +35,32 @@
     ]
   },
   {
+    "id": "republic-day",
+    "name": "Republic Day Long Weekend",
+    "icon": "🇮🇳",
+    "badge": "Winter Long Weekend",
+    "description": "High leisure travel demand towards Goa, Jaipur, and mountain sectors.",
+    "rushStartDate": "2027-01-22",
+    "rushEndDate": "2027-01-27",
+    "peakDate": "2027-01-23",
+    "surgeMultiplier": 2.2,
+    "topRoutes": [
+      { "origin": "DEL", "destination": "GOI" },
+      { "origin": "BOM", "destination": "JAI" },
+      { "origin": "BLR", "destination": "GOI" },
+      { "origin": "DEL", "destination": "IXB" }
+    ]
+  },
+  {
     "id": "holi",
     "name": "Holi Festival of Colors",
     "icon": "🎨",
     "badge": "North & Central Rush",
-    "description": "Spring festival with heavy travel towards UP, Bihar, Rajasthan, and MP.",
+    "description": "Spring festival with heavy homecoming travel towards UP, Bihar, Rajasthan, and MP.",
     "rushStartDate": "2027-03-18",
     "rushEndDate": "2027-03-25",
     "peakDate": "2027-03-22",
-    "surgeMultiplier": 2.6,
+    "surgeMultiplier": 2.8,
     "topRoutes": [
       { "origin": "DEL", "destination": "LKO" },
       { "origin": "BOM", "destination": "PAT" },
@@ -69,19 +69,54 @@
     ]
   },
   {
+    "id": "eid-ul-fitr",
+    "name": "Eid-ul-Fitr",
+    "icon": "🌙",
+    "badge": "Homecoming Rush",
+    "description": "Major festival travel rush towards Lucknow, Hyderabad, Srinagar, and Kolkata.",
+    "rushStartDate": "2027-03-28",
+    "rushEndDate": "2027-04-03",
+    "peakDate": "2027-03-31",
+    "surgeMultiplier": 2.7,
+    "topRoutes": [
+      { "origin": "DEL", "destination": "LKO" },
+      { "origin": "BOM", "destination": "HYD" },
+      { "origin": "BLR", "destination": "CCU" },
+      { "origin": "DEL", "destination": "SXR" }
+    ]
+  },
+  {
     "id": "onam",
     "name": "Onam Festival",
     "icon": "🌸",
     "badge": "Kerala Homecoming",
     "description": "Expat and domestic techie rush back to Kochi and Thiruvananthapuram.",
-    "rushStartDate": "2026-08-25",
-    "rushEndDate": "2026-09-03",
-    "peakDate": "2026-08-28",
+    "rushStartDate": "2027-08-28",
+    "rushEndDate": "2027-09-05",
+    "peakDate": "2027-09-01",
     "surgeMultiplier": 2.5,
     "topRoutes": [
       { "origin": "BLR", "destination": "COK" },
       { "origin": "BOM", "destination": "COK" },
-      { "origin": "DEL", "destination": "COK" }
+      { "origin": "DEL", "destination": "COK" },
+      { "origin": "HYD", "destination": "COK" }
+    ]
+  },
+  {
+    "id": "durga-puja",
+    "name": "Durga Puja",
+    "icon": "🪘",
+    "badge": "Kolkata & East Rush",
+    "description": "Bengal's biggest festival with flights from BLR, BOM, and DEL spiking 3x.",
+    "rushStartDate": "2027-10-06",
+    "rushEndDate": "2027-10-13",
+    "peakDate": "2027-10-09",
+    "surgeMultiplier": 3.4,
+    "topRoutes": [
+      { "origin": "BLR", "destination": "CCU" },
+      { "origin": "BOM", "destination": "CCU" },
+      { "origin": "DEL", "destination": "CCU" },
+      { "origin": "HYD", "destination": "CCU" }
     ]
   }
 ]

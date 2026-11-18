@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, MessageSquare, Send, CheckCircle2, Zap } from 'lucide-react';
+import { X, MessageSquare, Send, CheckCircle2, Zap, ExternalLink } from 'lucide-react';
 import { createAlert, testDirectWhatsApp } from '../services/api';
 
 export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCreated }) {
@@ -16,6 +16,7 @@ export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCr
   const [telegramChatId, setTelegramChatId] = useState('');
   const [loading, setLoading] = useState(false);
   const [testStatus, setTestStatus] = useState(null);
+  const [testLink, setTestLink] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -33,6 +34,11 @@ export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCr
         origin,
         destination,
         travelDate: date,
+        tripType: routeData.tripType || 'one-way',
+        returnDate: routeData.returnDate || '',
+        adults: routeData.adults || 1,
+        children: routeData.children || 0,
+        cabinClass: routeData.cabinClass || 'economy',
         festivalId: evaluation?.matchedFestival?.id || 'custom',
         festivalName: evaluation?.matchedFestival?.name || 'Festive Travel',
         targetPrice: Number(targetPrice),
@@ -61,14 +67,18 @@ export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCr
       return;
     }
     setTestStatus('testing');
+    setError('');
     try {
-      await testDirectWhatsApp(
+      const res = await testDirectWhatsApp(
         contactInfo,
         `🔥 *FestiveFare Loot Alert Connected!*\nTracking ${origin} ➔ ${destination} for ${date}. We will ping your WhatsApp the moment fares dip to ₹${Number(targetPrice).toLocaleString('en-IN')}.`,
         callMeBotApiKey
       );
       setTestStatus('success');
-      setTimeout(() => setTestStatus(null), 4000);
+      if (res.result?.clickToChatUrl) {
+        setTestLink(res.result.clickToChatUrl);
+      }
+      setTimeout(() => setTestStatus(null), 8000);
     } catch (err) {
       setTestStatus('error');
       setError('Could not dispatch test message: ' + (err.response?.data?.error || err.message));
@@ -206,11 +216,37 @@ export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCr
               </div>
 
               {testStatus === 'success' && (
-                <div className="text-[11px] font-mono text-black bg-loot-lime p-2 rounded-lg border border-black flex items-center space-x-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Test ping delivered! Check Alert Log.</span>
+                <div className="space-y-1.5 pt-1">
+                  <div className="text-[11px] font-mono text-black bg-loot-lime p-2 rounded-lg border border-black flex items-center space-x-1">
+                    <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span>Test alert dispatched successfully!</span>
+                  </div>
+                  {testLink && (
+                    <a
+                      href={testLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-center text-xs font-curved font-black underline bg-loot-yellow p-1.5 rounded-lg border border-black hover:bg-black hover:text-white transition-colors"
+                    >
+                      <span>💬 Open Test in WhatsApp App / Web &rarr;</span>
+                    </a>
+                  )}
                 </div>
               )}
+
+              {/* CallMeBot API key (Optional) */}
+              <div className="pt-1">
+                <label className="block text-[10px] font-mono font-bold uppercase text-gray-500 mb-0.5">
+                  CallMeBot API Key (Optional for automated bot delivery)
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. 123456 (Leave blank for Click-to-Chat)"
+                  value={callMeBotApiKey}
+                  onChange={(e) => setCallMeBotApiKey(e.target.value)}
+                  className="w-full bg-[#FDFBF7] border border-black rounded-lg px-2.5 py-1 text-[11px] font-mono text-black focus:outline-none"
+                />
+              </div>
             </div>
           ) : (
             <div>
@@ -219,7 +255,7 @@ export default function CreateAlertModal({ isOpen, onClose, routeData, onAlertCr
               </label>
               <input
                 type="text"
-                placeholder="@username"
+                placeholder="@username or Chat ID"
                 value={telegramChatId}
                 onChange={(e) => setTelegramChatId(e.target.value)}
                 className="w-full bg-[#FDFBF7] border-2 border-black rounded-xl px-3 py-2 text-xs font-mono font-bold text-black focus:outline-none focus:bg-white focus:shadow-loot-sm"

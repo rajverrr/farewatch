@@ -10,7 +10,16 @@ let cronJob = null;
  */
 async function checkAlert(alert) {
   try {
-    const flightData = await searchFlights(alert.origin, alert.destination, alert.travelDate);
+    const flightData = await searchFlights({
+      origin: alert.origin,
+      destination: alert.destination,
+      date: alert.travelDate,
+      tripType: alert.tripType || 'one-way',
+      returnDate: alert.returnDate || '',
+      adults: alert.adults || 1,
+      children: alert.children || 0,
+      cabinClass: alert.cabinClass || 'economy'
+    });
     const currentLowest = flightData.lowestPrice;
     const isTargetMet = currentLowest <= alert.targetPrice;
     const isStrongBuy = flightData.evaluation.verdict === 'STRONG_BUY';
@@ -61,7 +70,16 @@ async function triggerAlertManually(alertId) {
   const alert = alertStore.getAlertById(alertId);
   if (!alert) throw new Error('Alert not found');
 
-  const flightData = await searchFlights(alert.origin, alert.destination, alert.travelDate);
+  const flightData = await searchFlights({
+    origin: alert.origin,
+    destination: alert.destination,
+    date: alert.travelDate,
+    tripType: alert.tripType || 'one-way',
+    returnDate: alert.returnDate || '',
+    adults: alert.adults || 1,
+    children: alert.children || 0,
+    cabinClass: alert.cabinClass || 'economy'
+  });
   const notificationResults = await dispatchAlertNotification(alert, flightData);
 
   alertStore.updateAlert(alert.id, {

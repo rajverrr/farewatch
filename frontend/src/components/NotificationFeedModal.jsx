@@ -19,7 +19,7 @@ export default function NotificationFeedModal({ isOpen, onClose, notifications =
                 LIVE DISPATCH FEED
               </span>
               <h3 className="font-curved font-black text-black text-lg sm:text-xl uppercase leading-tight mt-0.5">
-                Dispatched WhatsApp Alert Log
+                Dispatched Alert Activity Log
               </h3>
             </div>
           </div>
@@ -59,11 +59,11 @@ export default function NotificationFeedModal({ isOpen, onClose, notifications =
                   </span>
                 </div>
 
-                {/* WhatsApp Chat Preview Bubble */}
+                {/* WhatsApp / Telegram Chat Preview Bubble */}
                 <div className="p-4 rounded-xl bg-[#0b241b] text-emerald-100 font-mono text-xs whitespace-pre-wrap leading-relaxed border-2 border-black shadow-inner">
                   {item.previewText}
                   <div className="flex items-center justify-end space-x-1 mt-2 text-[10px] text-loot-lime font-bold">
-                    <span>DELIVERED</span>
+                    <span>DISPATCHED</span>
                     <CheckCheck className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -77,7 +77,7 @@ export default function NotificationFeedModal({ isOpen, onClose, notifications =
                       rel="noopener noreferrer"
                       className="btn-loot px-3 py-1.5 rounded-xl text-xs font-curved font-bold text-black bg-loot-yellow hover:bg-[#ffe135] inline-flex items-center space-x-1"
                     >
-                      <span>OPEN IN WHATSAPP WEB</span>
+                      <span>OPEN IN WHATSAPP WEB / APP</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>

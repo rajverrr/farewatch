@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5001/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001/api';
 
 const api = axios.create({
   baseURL: API_BASE,
-  timeout: 10000
+  timeout: 15000
 });
 
 export const getAirports = async (query = '') => {
@@ -17,10 +17,20 @@ export const getFestivals = async () => {
   return res.data;
 };
 
-export const searchFlights = async (origin, destination, date) => {
-  const res = await api.get('/flights/search', {
-    params: { origin, destination, date }
-  });
+export const searchFlights = async (searchParamsOrOrigin, dest, dt, extra = {}) => {
+  let params = {};
+  if (typeof searchParamsOrOrigin === 'object' && searchParamsOrOrigin !== null) {
+    params = searchParamsOrOrigin;
+  } else {
+    params = {
+      origin: searchParamsOrOrigin,
+      destination: dest,
+      date: dt,
+      ...extra
+    };
+  }
+
+  const res = await api.get('/flights/search', { params });
   return res.data;
 };
 

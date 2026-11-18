@@ -1,7 +1,52 @@
+const fs = require('fs');
+const path = require('path');
 const axios = require('axios');
 
-// In-memory feed of recent dispatched notifications
-const recentNotifications = [];
+const NOTIF_FILE = path.join(__dirname, '../../data/notifications.json');
+
+// Ensure notifications storage file exists
+function ensureNotifStorage() {
+  const dir = path.dirname(NOTIF_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  if (!fs.existsSync(NOTIF_FILE)) {
+    const starterNotifications = [
+      {
+        id: 'notif-wa-seed-1',
+        channel: 'whatsapp',
+        recipient: '+91 98765 43210',
+        timestamp: new Date(Date.now() - 3600000 * 2).toISOString(),
+        status: 'delivered',
+        method: 'whatsapp_radar',
+        previewText: '🔥 LOWEST FARE ALERT: DEL ➔ PAT\n━━━━━━━━━━━━━━━━━━━━\n🎯 Festival: 🪔 Diwali & Chhath Puja\n📅 Travel Date: 2026-12-30\n💰 Current Lowest Price: ₹5,200\n📉 Savings vs Peak: Save ₹14,300 (Historical Peak: ₹19,500)\n⚡ Verdict: Strong Buy! Lowest 15% historical bracket.\n👉 Book now: https://www.makemytrip.com/flight/search?itinerary=DEL-PAT-2026-12-30&tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E',
+        clickToChatUrl: 'https://api.whatsapp.com/send?phone=919876543210&text=%F0%9F%94%A5%20LOWEST%20FARE%20ALERT'
+      }
+    ];
+    fs.writeFileSync(NOTIF_FILE, JSON.stringify(starterNotifications, null, 2));
+  }
+}
+
+function loadNotifications() {
+  ensureNotifStorage();
+  try {
+    const data = fs.readFileSync(NOTIF_FILE, 'utf8');
+    return JSON.parse(data);
+  } catch (err) {
+    console.error('Error reading notifications file:', err);
+    return [];
+  }
+}
+
+function saveNotifications(notifications) {
+  ensureNotifStorage();
+  try {
+    fs.writeFileSync(NOTIF_FILE, JSON.stringify(notifications.slice(0, 50), null, 2));
+  } catch (err) {
+    console.error('Error saving notifications:', err);
+  }
+}
 
 /**
  * Format a high-impact festive flight deal message
@@ -22,7 +67,7 @@ ${savings ? `📉 *Savings vs Peak:* ${savings} (Historical Peak: ₹${benchmark
 ⚡ *Verdict:* Strong Buy! This fare is in the lowest 15% historical bracket.
 ⏰ *Action:* Prices for this route usually surge in the coming days. Book immediately!
 
-👉 Book now: ${bookingUrl || 'https://www.makemytrip.com/flights'}`
+👉 Book deal now: ${bookingUrl || `https://www.makemytrip.com/flight/search?itinerary=${origin}-${destination}-${date}&tripType=O&paxType=A-1_C-0_I-0&intl=false&cabinClass=E`}`
   };
 }
 
@@ -30,7 +75,6 @@ ${savings ? `📉 *Savings vs Peak:* ${savings} (Historical Peak: ₹${benchmark
  * Send WhatsApp notification
  */
 async function sendWhatsAppNotification({ phone, messageText, callMeBotApiKey }) {
-  // Clean phone number (e.g. +91 9876543210 -> 919876543210)
   const cleanPhone = (phone || '').replace(/[^0-9]/g, '');
 
   let status = 'sent';
@@ -49,7 +93,6 @@ async function sendWhatsAppNotification({ phone, messageText, callMeBotApiKey })
       method = 'callmebot_failed';
     }
   }
-
   // 2. Try Twilio WhatsApp if credentials exist in environment
   else if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN && process.env.TWILIO_WHATSAPP_NUMBER) {
     try {
@@ -76,7 +119,7 @@ async function sendWhatsAppNotification({ phone, messageText, callMeBotApiKey })
     }
   }
 
-  // Fallback: Generate direct WhatsApp Click-to-Chat URL
+  // Generate direct WhatsApp Click-to-Chat URL
   const clickToChatUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(messageText)}`;
 
   const logEntry = {
@@ -91,8 +134,9 @@ async function sendWhatsAppNotification({ phone, messageText, callMeBotApiKey })
     error
   };
 
-  recentNotifications.unshift(logEntry);
-  if (recentNotifications.length > 50) recentNotifications.pop();
+  const list = loadNotifications();
+  list.unshift(logEntry);
+  saveNotifications(list);
 
   return logEntry;
 }
@@ -102,7 +146,6 @@ async function sendWhatsAppNotification({ phone, messageText, callMeBotApiKey })
  */
 async function sendTelegramNotification({ chatId, messageText, botToken }) {
   const token = botToken || process.env.TELEGRAM_BOT_TOKEN;
-  let status = 'sent';
   let method = 'simulated';
   let error = null;
 
@@ -131,8 +174,9 @@ async function sendTelegramNotification({ chatId, messageText, botToken }) {
     error
   };
 
-  recentNotifications.unshift(logEntry);
-  if (recentNotifications.length > 50) recentNotifications.pop();
+  const list = loadNotifications();
+  list.unshift(logEntry);
+  saveNotifications(list);
 
   return logEntry;
 }
@@ -152,18 +196,22 @@ async function sendEmailNotification({ email, subject, messageText }) {
     previewText: messageText
   };
 
-  recentNotifications.unshift(logEntry);
-  if (recentNotifications.length > 50) recentNotifications.pop();
+  const list = loadNotifications();
+  list.unshift(logEntry);
+  saveNotifications(list);
 
   return logEntry;
 }
 
 /**
- * Dispatch alert to the user's chosen channel(s)
+ * Dispatch alert to chosen channel
  */
 async function dispatchAlertNotification(alert, flightData) {
   const { channel, contactInfo, callMeBotApiKey, telegramChatId } = alert;
-  const { origin, destination, date, lowestPrice, evaluation } = flightData;
+  const { origin, destination, date, lowestPrice, evaluation, flights } = flightData;
+
+  const lowestFlight = flights?.[0];
+  const dealUrl = lowestFlight?.bookingUrl || lowestFlight?.makeMyTripUrl;
 
   const { plainText, title } = formatDealMessage({
     route: `${origin} - ${destination}`,
@@ -173,7 +221,7 @@ async function dispatchAlertNotification(alert, flightData) {
     price: lowestPrice,
     benchmark: evaluation.benchmark,
     matchedFestival: evaluation.matchedFestival,
-    bookingUrl: `https://www.google.com/travel/flights?q=flights+from+${origin}+to+${destination}+on+${date}`
+    bookingUrl: dealUrl
   });
 
   const results = [];
@@ -208,7 +256,7 @@ async function dispatchAlertNotification(alert, flightData) {
 }
 
 function getRecentNotifications() {
-  return recentNotifications;
+  return loadNotifications();
 }
 
 module.exports = {

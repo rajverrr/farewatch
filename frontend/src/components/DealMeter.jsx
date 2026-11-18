@@ -1,7 +1,7 @@
 import React from 'react';
-import { MessageSquare, Flame, ShieldAlert, Sparkles, Zap, ArrowUpRight } from 'lucide-react';
+import { MessageSquare, Flame, ShieldAlert, Sparkles, Zap, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
-export default function DealMeter({ evaluation, lowestPrice, onOpenAlertModal }) {
+export default function DealMeter({ evaluation, lowestPrice, isLiveFare, fareSource, onOpenAlertModal }) {
   if (!evaluation) return null;
 
   const {
@@ -37,6 +37,12 @@ export default function DealMeter({ evaluation, lowestPrice, onOpenAlertModal })
           <span className="font-curved font-black text-sm uppercase">
             {badgeText}
           </span>
+          {isLiveFare && (
+            <span className="font-mono text-[10px] font-bold uppercase px-2 py-0.5 bg-white text-emerald-800 border-2 border-black rounded-md flex items-center space-x-1 shadow-loot-xs">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>VERIFIED LIVE GDS & AIRLINE FARES</span>
+            </span>
+          )}
         </div>
 
         <div className="flex items-center space-x-2 font-mono text-xs font-bold">
@@ -47,7 +53,7 @@ export default function DealMeter({ evaluation, lowestPrice, onOpenAlertModal })
         </div>
       </div>
 
-      {/* Main Content Area: Spacious & Guaranteed Non-Overlapping */}
+      {/* Main Content Area */}
       <div className="p-6">
         
         {/* Price & Action Row */}
@@ -55,8 +61,13 @@ export default function DealMeter({ evaluation, lowestPrice, onOpenAlertModal })
           
           {/* Price Block */}
           <div>
-            <div className="text-xs font-mono font-bold uppercase text-gray-500 mb-1">
-              // LOWEST FARE ON RADAR
+            <div className="text-xs font-mono font-bold uppercase text-gray-500 mb-1 flex items-center space-x-1.5">
+              <span>// LOWEST REAL-TIME FARE</span>
+              {isLiveFare && (
+                <span className="text-[10px] text-emerald-700 font-bold bg-emerald-100 px-1.5 py-0.2 rounded border border-emerald-400">
+                  VERIFIED
+                </span>
+              )}
             </div>
             
             <div className="flex flex-wrap items-baseline gap-3">

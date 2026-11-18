@@ -1,0 +1,22 @@
+{
+  "name": "farewatch",
+  "version": "1.0.0",
+  "description": "FestiveFare - AI-powered Indian Festive Flight Price Predictor & WhatsApp/Telegram Alert Engine",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); const b = spawn('npm', ['run', 'dev'], { cwd: 'backend', stdio: 'inherit' }); const f = spawn('npm', ['run', 'dev'], { cwd: 'frontend', stdio: 'inherit' }); process.on('SIGINT', () => { b.kill(); f.kill(); process.exit(); });\"",
+    "build": "cd frontend && npm run build",
+    "install:all": "cd backend && npm install && cd ../frontend && npm install"
+  },
+  "keywords": [
+    "flight-tracker",
+    "indian-festivals",
+    "diwali",
+    "farewatch",
+    "whatsapp-alerts",
+    "telegram-bot"
+  ],
+  "author": "Rajveer Singh",
+  "license": "MIT"
+}
